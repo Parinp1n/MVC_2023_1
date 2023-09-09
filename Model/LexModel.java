@@ -3,7 +3,9 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LexModel {
+import Interface.LexerModel;
+
+public class LexModel implements LexerModel { //implement interface
     private List<String> tokens = new ArrayList<>();
 
     public void addToken(String token) {
@@ -30,7 +32,7 @@ public class LexModel {
 
     private boolean isKeyword(String token) {
         // Define list of keywords
-        String[] keywords = {"declare"};
+        String[] keywords = { "declare" };
 
         for (String keyword : keywords) {
             if (token.equals(keyword)) {
@@ -48,14 +50,13 @@ public class LexModel {
 
     private boolean isSymbol(String token) {
         // Define list of symbols
-        String[] symbols = {"=", "+"};
+        String[] symbols = { "=", "+" };
 
         for (String symbol : symbols) {
             if (token.equals(symbol)) {
                 return true;
             }
         }
-
         return false;
     }
 

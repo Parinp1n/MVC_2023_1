@@ -3,7 +3,9 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LexModel2 {
+import Interface.LexerModel;
+
+public class LexModel2 implements LexerModel { //implement interface
     private List<String> tokens = new ArrayList<>();
 
     public void addToken(String token) {
@@ -32,7 +34,7 @@ public class LexModel2 {
 
     private boolean isKeywordAndSign(String token) {
         // Define your list of keywords and signs here
-        String[] keywordsAndSigns = {"declare", "+"};
+        String[] keywordsAndSigns = { "declare", "+" };
 
         for (String keywordOrSign : keywordsAndSigns) {
             if (token.equals(keywordOrSign)) {
@@ -55,7 +57,7 @@ public class LexModel2 {
 
     private boolean isAssignment(String token) {
         // Define your list of assignment operators here
-        String[] assignments = {"="};
+        String[] assignments = { "=" };
 
         for (String assignment : assignments) {
             if (token.equals(assignment)) {
@@ -68,7 +70,7 @@ public class LexModel2 {
 
     private boolean isOperation(String token) {
         // Define your list of operations here
-        String[] operations = {"+", "-", "*", "/"};
+        String[] operations = { "+", "-", "*", "/" };
 
         for (String operation : operations) {
             if (token.equals(operation)) {
@@ -79,4 +81,3 @@ public class LexModel2 {
         return false;
     }
 }
-
